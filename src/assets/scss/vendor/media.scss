@@ -1,0 +1,186 @@
+// Importa variáveis de tema
+@import "./theme.scss";
+
+// Definições de Breakpoints
+$mobile-max: $breakpoint-xsmall-max; // Max: 640px
+$tablet-min: $breakpoint-small;       // Min: 640px
+$tablet-max: $breakpoint-small-max;   // Max: 960px
+$tablet-large-min: $breakpoint-medium; // Min: 960px
+$tablet-large-max: $breakpoint-medium-max; // Max: 1200px
+$desktop-min: $breakpoint-large;      // Min: 1200px
+$desktop-max: $breakpoint-large-max;  // Max: 1600px
+$desktop-large-min: $breakpoint-xlarge; // Min: 1600px
+
+/* ============================================================================
+// Mobile Mixins
+============================================================================ */
+
+// Mixin para aplicar estilos em dispositivos móveis (até 640px)
+@mixin mobile {
+	@media screen and (max-width: $mobile-max) {
+		@content; // Aplica o conteúdo do mixin aqui
+	}
+}
+
+// Mixin para dispositivos móveis grandes (entre 640px e 768px)
+@mixin mobile-large {
+	@media screen and (min-width: $mobile-max) and (max-width: 768px) {
+		@content;
+	}
+}
+
+// Mixin para dispositivos móveis acima de 640px
+@mixin mobile-up {
+	@media screen and (min-width: $tablet-min) {
+		@content;
+	}
+}
+
+/* ============================================================================
+// Tablet Mixins
+============================================================================ */
+
+// Mixin para dispositivos tablet (entre 640px e 1200px)
+@mixin tablet {
+	@media screen and (min-width: $tablet-min) and (max-width: $tablet-large-max) {
+		@content;
+	}
+}
+
+// Mixin para tablets pequenos (entre 640px e 960px)
+@mixin tablet-small {
+	@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
+		@content;
+	}
+}
+
+// Mixin para tablets pequenos e abaixo de 960px
+@mixin tablet-small-down {
+	@media screen and (max-width: $tablet-max) {
+		@content;
+	}
+}
+
+// Mixin para tablets pequenos acima de 960px
+@mixin tablet-small-up {
+	@media screen and (min-width: $tablet-large-min) {
+		@content;
+	}
+}
+
+// Mixin para tablets grandes (entre 960px e 1200px)
+@mixin tablet-large {
+	@media screen and (min-width: $tablet-large-min) and (max-width: $tablet-large-max) {
+		@content;
+	}
+}
+
+// Mixin para tablets grandes abaixo de 1200px
+@mixin tablet-large-down {
+	@media screen and (max-width: $tablet-large-max) {
+		@content;
+	}
+}
+
+// Mixin para tablets em modo horizontal (entre 900px e 1200px)
+@mixin tablet-horizontal {
+	@media screen and (min-width: 900px) and (max-width: 1200px) {
+		@content;
+	}
+}
+
+// Mixin para tablets em modo vertical (entre 600px e 900px)
+@mixin tablet-vertical {
+	@media screen and (min-width: 600px) and (max-width: 900px) {
+		@content;
+	}
+}
+
+/* ============================================================================
+// Desktop Mixins
+============================================================================ */
+
+// Mixin para dispositivos desktop (a partir de 1200px)
+@mixin desktop {
+	@media screen and (min-width: $desktop-min) {
+		@content;
+	}
+}
+
+// Mixin para desktops pequenos (entre 1200px e 1600px)
+@mixin desktop-small {
+	@media screen and (min-width: $desktop-min) and (max-width: $desktop-max) {
+		@content;
+	}
+}
+
+// Mixin para desktops grandes (acima de 1600px)
+@mixin desktop-large {
+	@media screen and (min-width: $desktop-large-min) {
+		@content;
+	}
+}
+
+// Mixin para dispositivos desktop abaixo de 1200px
+@mixin desktop-down {
+	@media screen and (max-width: $tablet-large-max) {
+		@content;
+	}
+}
+
+// Mixin para dispositivos desktop com 100px a menos que o tablet grande (até 1300px)
+@mixin desktop-up {
+	@media screen and (max-width: ($tablet-large-max + 100)) {
+		@content;
+	}
+}
+
+/* ============================================================================
+// Print Mixin
+============================================================================ */
+
+// Mixin para estilos de impressão
+@mixin print {
+	@media print {
+		@content;
+	}
+}
+
+/* ============================================================================
+// Novos Mixins Adicionais
+============================================================================ */
+
+// Mixin para dispositivos de tela pequena (até 480px)
+@mixin small-mobile {
+	@media screen and (max-width: 480px) {
+		@content;
+	}
+}
+
+// Mixin para dispositivos de tela média (até 768px)
+@mixin medium-mobile {
+	@media screen and (max-width: 768px) {
+		@content;
+	}
+}
+
+// Mixin para dispositivos de tela grande (acima de 1600px)
+@mixin large-desktop {
+	@media screen and (min-width: 1600px) {
+		@content;
+	}
+}
+
+// Mixin para dispositivos com orientação vertical
+@mixin portrait {
+	@media screen and (orientation: portrait) {
+		@content;
+	}
+}
+
+// Mixin para dispositivos com orientação horizontal
+@mixin landscape {
+	@media screen and (orientation: landscape) {
+		@content;
+	}
+}
